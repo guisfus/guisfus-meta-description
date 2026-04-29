@@ -4,7 +4,7 @@ Tags: meta description, seo, metadata, custom fields, gutenberg
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,7 +18,7 @@ The plugin is intentionally lightweight. It does not provide SEO analysis, schem
 
 To avoid duplicate meta description tags, the plugin automatically skips frontend output when it detects common SEO plugins such as Yoast SEO, Rank Math, SEOPress, All in One SEO, or The SEO Framework.
 
-The final description is limited to 160 characters by default, without cutting words when possible.
+The final description is not limited by default. Developers can enable a maximum length with a filter.
 
 The plugin chooses the description in this order:
 
@@ -65,11 +65,14 @@ Developers can override SEO plugin detection with this filter:
 
 Yes. Use the `guisfus_meta_description_value` filter.
 
-= Can developers change the maximum description length? =
+= Can developers set a maximum description length? =
 
-Yes. Use the `guisfus_meta_description_max_length` filter. Return `0` to disable the limit.
+Yes. Use the `guisfus_meta_description_max_length` filter. The default value is `0`, which disables the limit.
 
 == Changelog ==
+
+= 1.0.1 =
+* Disable the maximum description length by default so manually written descriptions are not truncated.
 
 = 1.0.0 =
 * Initial release.

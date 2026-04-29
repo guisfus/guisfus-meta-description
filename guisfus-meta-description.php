@@ -3,7 +3,7 @@
  * Plugin Name: Guisfus Meta Description
  * Plugin URI: https://github.com/guisfus/guisfus-meta-description
  * Description: Outputs a meta description tag for singular content using a custom field, excerpt, or trimmed content.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: guisfus
@@ -28,7 +28,7 @@ if ( ! class_exists( 'Guisfus_Meta_Description' ) ) {
 		/**
 		 * Plugin version.
 		 */
-		private const VERSION = '1.0.0';
+		private const VERSION = '1.0.1';
 
 		/**
 		 * Primary custom field key.
@@ -46,9 +46,9 @@ if ( ! class_exists( 'Guisfus_Meta_Description' ) ) {
 		private const FALLBACK_WORD_LIMIT = 25;
 
 		/**
-		 * Maximum generated description length in characters.
+		 * Maximum generated description length in characters. Disabled by default.
 		 */
-		private const DESCRIPTION_MAX_LENGTH = 160;
+		private const DESCRIPTION_MAX_LENGTH = 0;
 
 		/**
 		 * Boot the plugin.
@@ -234,7 +234,7 @@ if ( ! class_exists( 'Guisfus_Meta_Description' ) ) {
 		}
 
 		/**
-		 * Limit the description length without cutting words when possible.
+		 * Limit the description length without cutting words when explicitly enabled.
 		 *
 		 * @param string $description Description text.
 		 * @return string
@@ -243,7 +243,9 @@ if ( ! class_exists( 'Guisfus_Meta_Description' ) ) {
 			/**
 			 * Filter the maximum meta description length in characters.
 			 *
-			 * @param int $max_length Maximum character length. Default 160.
+			 * Return 0 to disable the limit.
+			 *
+			 * @param int $max_length Maximum character length. Default 0.
 			 */
 			$max_length = (int) apply_filters( 'guisfus_meta_description_max_length', self::DESCRIPTION_MAX_LENGTH );
 

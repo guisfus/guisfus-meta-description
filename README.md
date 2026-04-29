@@ -11,7 +11,7 @@ A lightweight WordPress plugin that outputs a `<meta name="description">` tag fo
 - Falls back to trimmed post content when no custom field or excerpt exists.
 - Registers the custom meta field for REST API compatibility.
 - Skips output automatically when common SEO plugins are detected, helping avoid duplicate meta description tags.
-- Limits the final description to 160 characters by default, without cutting words when possible.
+- Provides an optional filter to limit the final description length, without cutting words when possible.
 - Provides filters for developers who want to customize or disable the output.
 
 ## Requirements
@@ -43,7 +43,7 @@ meta_description
 
 If neither field exists, the plugin will use the post excerpt. If there is no excerpt, it will generate a short description from the post content.
 
-The final description is limited to 160 characters by default.
+The final description is not limited by default, so custom descriptions are output as entered after sanitization and escaping.
 
 ## SEO plugin compatibility
 
@@ -89,7 +89,7 @@ add_filter(
 );
 ```
 
-### Change the maximum description length
+### Set a maximum description length
 
 ```php
 add_filter(
