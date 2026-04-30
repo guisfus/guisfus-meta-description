@@ -28,8 +28,25 @@ The plugin chooses the description in this order:
 
 == Installation ==
 
-1. Upload the `meta-description` folder to the `/wp-content/plugins/` directory.
-2. Activate the plugin through the **Plugins** screen in WordPress.
+The GitHub repository uses the `wp-` prefix only to identify it as a WordPress plugin repository. When installing the plugin in WordPress, use the plugin folder name without the `wp-` prefix.
+
+Correct plugin folder: `/wp-content/plugins/meta-description/`
+
+Correct ZIP structure: `meta-description.zip` containing a root `meta-description/` folder with `meta-description.php` inside it.
+
+Do not install it as `/wp-content/plugins/wp-meta-description/`.
+
+Backend installation:
+
+1. Create a ZIP with `meta-description/` as the root folder.
+2. Go to Plugins > Add New > Upload Plugin.
+3. Upload `meta-description.zip`.
+4. Activate Meta Description.
+
+Manual installation:
+
+1. Upload the `meta-description` folder to `/wp-content/plugins/`.
+2. Activate Meta Description from the WordPress plugins screen.
 3. Add a custom field named `meta_description` to any post, page, or custom post type.
 
 == Frequently Asked Questions ==

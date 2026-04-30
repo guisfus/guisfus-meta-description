@@ -20,9 +20,42 @@ A lightweight WordPress plugin that outputs a `<meta name="description">` tag fo
 
 ## Installation
 
-1. Download or clone this repository.
-2. Copy the `meta-description` folder into your WordPress `wp-content/plugins/` directory.
-3. Activate **Meta Description** from the WordPress admin plugins screen.
+The GitHub repository uses the `wp-` prefix only to identify it as a WordPress plugin repository. When installing the plugin in WordPress, use the plugin folder name without the `wp-` prefix.
+
+Correct plugin folder:
+
+```txt
+wp-content/plugins/meta-description/
+```
+
+Correct ZIP structure:
+
+```txt
+meta-description.zip
+`-- meta-description/
+    |-- meta-description.php
+    |-- README.md
+    |-- readme.txt
+    `-- LICENSE
+```
+
+Do not install it as:
+
+```txt
+wp-content/plugins/wp-meta-description/
+```
+
+Backend installation:
+
+1. Create a ZIP with `meta-description/` as the root folder.
+2. In WordPress, go to **Plugins > Add New > Upload Plugin**.
+3. Upload `meta-description.zip`.
+4. Activate **Meta Description**.
+
+Manual installation:
+
+1. Upload the `meta-description` folder to `wp-content/plugins/`.
+2. Activate **Meta Description** from the WordPress plugins screen.
 
 ## Usage
 
