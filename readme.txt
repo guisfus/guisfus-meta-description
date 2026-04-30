@@ -38,6 +38,8 @@ The plugin chooses the description in this order:
 
 Use `meta_description`.
 
+The key is intentionally simple for custom sites. If a project already uses that field name for another purpose, rename the field in the plugin before deploying it.
+
 = Does this plugin add a Gutenberg sidebar or editor field? =
 
 No. This first version only registers and reads the custom meta field. It does not add a custom editor UI.
@@ -65,6 +67,10 @@ Yes. Use the `meta_description_value` filter.
 = Can developers set a maximum description length? =
 
 Yes. Use the `meta_description_max_length` filter. The default value is `0`, which disables the limit.
+
+= Does this plugin enqueue frontend assets? =
+
+No. It only outputs one escaped `<meta name="description">` tag when a description is available and no supported SEO plugin is detected.
 
 == Changelog ==
 

@@ -34,6 +34,8 @@ meta_description
 
 The value of that field will be used as the page meta description.
 
+The `meta_description` key is intentionally simple for custom sites. If a project already uses that field name for another purpose, rename the field in the plugin before deploying it.
+
 If the field does not exist, the plugin will use the post excerpt. If there is no excerpt, it will generate a short description from the post content.
 
 The final description is not limited by default, so custom descriptions are output as entered after sanitization and escaping.
@@ -106,6 +108,20 @@ add_filter(
 ```
 
 Return `false` from this filter if you want this plugin to output the meta description even when a known SEO plugin is active.
+
+## Security
+
+- Outputs only on singular content.
+- Escapes the final tag value with `esc_attr()`.
+- Sanitizes stored and generated descriptions with WordPress text sanitization helpers.
+- Registers the post meta field with an edit capability check.
+- Does not add admin forms, AJAX actions, REST routes, external requests, cookies, or tracking.
+
+## Frontend Footprint
+
+- Outputs one `<meta name="description">` tag when no supported SEO plugin is detected.
+- Does not enqueue frontend CSS or JavaScript.
+- Does not write visible HTML comments or branded markup.
 
 ## Repository structure
 

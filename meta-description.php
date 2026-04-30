@@ -19,11 +19,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Meta_Description' ) ) {
+if ( ! class_exists( 'MDP_Meta_Description' ) ) {
 	/**
 	 * Main plugin class.
 	 */
-	final class Meta_Description {
+	final class MDP_Meta_Description {
 
 		/**
 		 * Plugin version.
@@ -306,5 +306,5 @@ if ( ! class_exists( 'Meta_Description' ) ) {
 		}
 	}
 
-	Meta_Description::init();
+	MDP_Meta_Description::init();
 }
