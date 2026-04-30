@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Guisfus Meta Description
- * Plugin URI: https://github.com/guisfus/guisfus-meta-description
+ * Plugin Name: Meta Description
+ * Plugin URI: https://github.com/guisfus/wp-meta-description
  * Description: Outputs a meta description tag for singular content using a custom field, excerpt, or trimmed content.
  * Version: 1.0.1
  * Requires at least: 6.0
@@ -10,20 +10,20 @@
  * Author URI: https://github.com/guisfus
  * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: guisfus-meta-description
+ * Text Domain: meta-description
  *
- * @package GuisfusMetaDescription
+ * @package MetaDescription
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Guisfus_Meta_Description' ) ) {
+if ( ! class_exists( 'Meta_Description' ) ) {
 	/**
 	 * Main plugin class.
 	 */
-	final class Guisfus_Meta_Description {
+	final class Meta_Description {
 
 		/**
 		 * Plugin version.
@@ -33,12 +33,7 @@ if ( ! class_exists( 'Guisfus_Meta_Description' ) ) {
 		/**
 		 * Primary custom field key.
 		 */
-		private const META_KEY = 'guisfus_meta_description';
-
-		/**
-		 * Backward-compatible custom field key used by earlier versions/snippets.
-		 */
-		private const LEGACY_META_KEY = 'meta_description';
+		private const META_KEY = 'meta_description';
 
 		/**
 		 * Fallback description length in words.
@@ -64,7 +59,7 @@ if ( ! class_exists( 'Guisfus_Meta_Description' ) ) {
 		 */
 		public static function load_textdomain(): void {
 			load_plugin_textdomain(
-				'guisfus-meta-description',
+				'meta-description',
 				false,
 				dirname( plugin_basename( __FILE__ ) ) . '/languages'
 			);
@@ -79,7 +74,7 @@ if ( ! class_exists( 'Guisfus_Meta_Description' ) ) {
 				self::META_KEY,
 				array(
 					'type'              => 'string',
-					'description'       => __( 'Custom meta description for search engines and social previews.', 'guisfus-meta-description' ),
+					'description'       => __( 'Custom meta description for search engines and social previews.', 'meta-description' ),
 					'single'            => true,
 					'sanitize_callback' => array( __CLASS__, 'sanitize_description' ),
 					'auth_callback'     => array( __CLASS__, 'can_edit_meta' ),
@@ -155,7 +150,7 @@ if ( ! class_exists( 'Guisfus_Meta_Description' ) ) {
 			 * @param bool    $disable Whether to disable output. Default false.
 			 * @param WP_Post $post    Current post object.
 			 */
-			if ( (bool) apply_filters( 'guisfus_meta_description_disable_output', false, $post ) ) {
+			if ( (bool) apply_filters( 'meta_description_disable_output', false, $post ) ) {
 				return;
 			}
 
@@ -181,10 +176,6 @@ if ( ! class_exists( 'Guisfus_Meta_Description' ) ) {
 		private static function get_description( WP_Post $post ): string {
 			$description = get_post_meta( $post->ID, self::META_KEY, true );
 
-			if ( '' === $description ) {
-				$description = get_post_meta( $post->ID, self::LEGACY_META_KEY, true );
-			}
-
 			if ( '' === $description && has_excerpt( $post ) ) {
 				$description = get_the_excerpt( $post );
 			}
@@ -203,7 +194,7 @@ if ( ! class_exists( 'Guisfus_Meta_Description' ) ) {
 			 * @param string  $description Meta description text.
 			 * @param WP_Post $post        Current post object.
 			 */
-			$description = (string) apply_filters( 'guisfus_meta_description_value', $description, $post );
+			$description = (string) apply_filters( 'meta_description_value', $description, $post );
 
 			return self::limit_description( self::sanitize_description( $description ) );
 		}
@@ -230,7 +221,7 @@ if ( ! class_exists( 'Guisfus_Meta_Description' ) ) {
 			 *
 			 * @param bool $has_seo_plugin Whether a known SEO plugin was detected.
 			 */
-			return (bool) apply_filters( 'guisfus_meta_description_has_seo_plugin', $has_seo_plugin );
+			return (bool) apply_filters( 'meta_description_has_seo_plugin', $has_seo_plugin );
 		}
 
 		/**
@@ -247,7 +238,7 @@ if ( ! class_exists( 'Guisfus_Meta_Description' ) ) {
 			 *
 			 * @param int $max_length Maximum character length. Default 0.
 			 */
-			$max_length = (int) apply_filters( 'guisfus_meta_description_max_length', self::DESCRIPTION_MAX_LENGTH );
+			$max_length = (int) apply_filters( 'meta_description_max_length', self::DESCRIPTION_MAX_LENGTH );
 
 			if ( $max_length < 1 || self::string_length( $description ) <= $max_length ) {
 				return $description;
@@ -315,5 +306,5 @@ if ( ! class_exists( 'Guisfus_Meta_Description' ) ) {
 		}
 	}
 
-	Guisfus_Meta_Description::init();
+	Meta_Description::init();
 }

@@ -1,4 +1,4 @@
-=== Guisfus Meta Description ===
+=== Meta Description ===
 Contributors: guisfus
 Tags: meta description, seo, metadata, custom fields, gutenberg
 Requires at least: 6.0
@@ -12,7 +12,7 @@ Outputs a lightweight meta description tag for singular WordPress content using 
 
 == Description ==
 
-Guisfus Meta Description is a small WordPress plugin that outputs a `<meta name="description">` tag for posts, pages, and custom post types.
+Meta Description is a small WordPress plugin that outputs a `<meta name="description">` tag for posts, pages, and custom post types.
 
 The plugin is intentionally lightweight. It does not provide SEO analysis, schema markup, Open Graph tags, sitemaps, or a custom editor interface. It simply provides a clean fallback system for meta descriptions.
 
@@ -22,24 +22,21 @@ The final description is not limited by default. Developers can enable a maximum
 
 The plugin chooses the description in this order:
 
-1. `guisfus_meta_description` custom field.
-2. `meta_description` legacy custom field.
-3. Manual post excerpt.
-4. Trimmed post content.
+1. `meta_description` custom field.
+2. Manual post excerpt.
+3. Trimmed post content.
 
 == Installation ==
 
-1. Upload the `guisfus-meta-description` folder to the `/wp-content/plugins/` directory.
+1. Upload the `meta-description` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the **Plugins** screen in WordPress.
-3. Add a custom field named `guisfus_meta_description` to any post, page, or custom post type.
+3. Add a custom field named `meta_description` to any post, page, or custom post type.
 
 == Frequently Asked Questions ==
 
 = Which custom field should I use? =
 
-Use `guisfus_meta_description`.
-
-The plugin also supports the legacy field `meta_description` for backward compatibility.
+Use `meta_description`.
 
 = Does this plugin add a Gutenberg sidebar or editor field? =
 
@@ -55,19 +52,19 @@ You should avoid outputting duplicate meta description tags. If another supporte
 
 Developers can disable the output with this filter:
 
-`add_filter( 'guisfus_meta_description_disable_output', '__return_true' );`
+`add_filter( 'meta_description_disable_output', '__return_true' );`
 
 Developers can override SEO plugin detection with this filter:
 
-`add_filter( 'guisfus_meta_description_has_seo_plugin', '__return_false' );`
+`add_filter( 'meta_description_has_seo_plugin', '__return_false' );`
 
 = Can developers modify the final description? =
 
-Yes. Use the `guisfus_meta_description_value` filter.
+Yes. Use the `meta_description_value` filter.
 
 = Can developers set a maximum description length? =
 
-Yes. Use the `guisfus_meta_description_max_length` filter. The default value is `0`, which disables the limit.
+Yes. Use the `meta_description_max_length` filter. The default value is `0`, which disables the limit.
 
 == Changelog ==
 
