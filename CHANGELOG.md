@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1
+
+- Rename the plugin to Custom Meta Description to avoid collisions with similarly named WordPress.org plugins.
+- Add a custom update URI to prevent WordPress.org from offering updates for a different plugin.
+
 ## 1.0.1
 
 - Disables the maximum description length by default so manually written descriptions are not truncated.

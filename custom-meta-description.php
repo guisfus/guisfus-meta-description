@@ -1,34 +1,35 @@
 <?php
 /**
- * Plugin Name: Meta Description
- * Plugin URI: https://github.com/guisfus/wp-meta-description
+ * Plugin Name: Custom Meta Description
+ * Plugin URI: https://github.com/guisfus/wp-custom-meta-description
  * Description: Outputs a meta description tag for singular content using a custom field, excerpt, or trimmed content.
- * Version: 1.0.1
+ * Version: 1.1.1
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: guisfus
  * Author URI: https://github.com/guisfus
+ * Update URI: false
  * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: meta-description
+ * Text Domain: custom-meta-description
  *
- * @package MetaDescription
+ * @package CustomMetaDescription
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'MDP_Meta_Description' ) ) {
+if ( ! class_exists( 'CMD_Meta_Description' ) ) {
 	/**
 	 * Main plugin class.
 	 */
-	final class MDP_Meta_Description {
+	final class CMD_Meta_Description {
 
 		/**
 		 * Plugin version.
 		 */
-		private const VERSION = '1.0.1';
+		private const VERSION = '1.1.1';
 
 		/**
 		 * Primary custom field key.
@@ -59,7 +60,7 @@ if ( ! class_exists( 'MDP_Meta_Description' ) ) {
 		 */
 		public static function load_textdomain(): void {
 			load_plugin_textdomain(
-				'meta-description',
+				'custom-meta-description',
 				false,
 				dirname( plugin_basename( __FILE__ ) ) . '/languages'
 			);
@@ -74,7 +75,7 @@ if ( ! class_exists( 'MDP_Meta_Description' ) ) {
 				self::META_KEY,
 				array(
 					'type'              => 'string',
-					'description'       => __( 'Custom meta description for search engines and social previews.', 'meta-description' ),
+					'description'       => __( 'Custom meta description for search engines and social previews.', 'custom-meta-description' ),
 					'single'            => true,
 					'sanitize_callback' => array( __CLASS__, 'sanitize_description' ),
 					'auth_callback'     => array( __CLASS__, 'can_edit_meta' ),
@@ -306,5 +307,5 @@ if ( ! class_exists( 'MDP_Meta_Description' ) ) {
 		}
 	}
 
-	MDP_Meta_Description::init();
+	CMD_Meta_Description::init();
 }

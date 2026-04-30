@@ -1,10 +1,10 @@
-=== Meta Description ===
+=== Custom Meta Description ===
 Contributors: guisfus
 Tags: meta description, seo, metadata, custom fields, gutenberg
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Outputs a lightweight meta description tag for singular WordPress content using 
 
 == Description ==
 
-Meta Description is a small WordPress plugin that outputs a `<meta name="description">` tag for posts, pages, and custom post types.
+Custom Meta Description is a small WordPress plugin that outputs a `<meta name="description">` tag for posts, pages, and custom post types.
 
 The plugin is intentionally lightweight. It does not provide SEO analysis, schema markup, Open Graph tags, sitemaps, or a custom editor interface. It simply provides a clean fallback system for meta descriptions.
 
@@ -30,23 +30,23 @@ The plugin chooses the description in this order:
 
 The GitHub repository uses the `wp-` prefix only to identify it as a WordPress plugin repository. When installing the plugin in WordPress, use the plugin folder name without the `wp-` prefix.
 
-Correct plugin folder: `/wp-content/plugins/meta-description/`
+Correct plugin folder: `/wp-content/plugins/custom-meta-description/`
 
-Correct ZIP structure: `meta-description.zip` containing a root `meta-description/` folder with `meta-description.php` inside it.
+Correct ZIP structure: `custom-meta-description.zip` containing a root `custom-meta-description/` folder with `custom-meta-description.php` inside it.
 
-Do not install it as `/wp-content/plugins/wp-meta-description/`.
+Do not install it as `/wp-content/plugins/wp-custom-meta-description/`.
 
 Backend installation:
 
-1. Create a ZIP with `meta-description/` as the root folder.
+1. Create a ZIP with `custom-meta-description/` as the root folder.
 2. Go to Plugins > Add New > Upload Plugin.
-3. Upload `meta-description.zip`.
-4. Activate Meta Description.
+3. Upload `custom-meta-description.zip`.
+4. Activate Custom Meta Description.
 
 Manual installation:
 
-1. Upload the `meta-description` folder to `/wp-content/plugins/`.
-2. Activate Meta Description from the WordPress plugins screen.
+1. Upload the `custom-meta-description` folder to `/wp-content/plugins/`.
+2. Activate Custom Meta Description from the WordPress plugins screen.
 3. Add a custom field named `meta_description` to any post, page, or custom post type.
 
 == Frequently Asked Questions ==
@@ -90,6 +90,10 @@ Yes. Use the `meta_description_max_length` filter. The default value is `0`, whi
 No. It only outputs one escaped `<meta name="description">` tag when a description is available and no supported SEO plugin is detected.
 
 == Changelog ==
+
+= 1.1.1 =
+
+Rename plugin slug to avoid WordPress.org update collisions and add a custom update URI.
 
 = 1.0.1 =
 * Disable the maximum description length by default so manually written descriptions are not truncated.

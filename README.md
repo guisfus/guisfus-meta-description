@@ -1,4 +1,4 @@
-# Meta Description
+# Custom Meta Description
 
 A lightweight WordPress plugin that outputs a `<meta name="description">` tag for singular content using a custom field, the post excerpt, or a trimmed version of the post content.
 
@@ -25,15 +25,15 @@ The GitHub repository uses the `wp-` prefix only to identify it as a WordPress p
 Correct plugin folder:
 
 ```txt
-wp-content/plugins/meta-description/
+wp-content/plugins/custom-meta-description/
 ```
 
 Correct ZIP structure:
 
 ```txt
-meta-description.zip
-`-- meta-description/
-    |-- meta-description.php
+custom-meta-description.zip
+`-- custom-meta-description/
+    |-- custom-meta-description.php
     |-- README.md
     |-- readme.txt
     `-- LICENSE
@@ -42,20 +42,20 @@ meta-description.zip
 Do not install it as:
 
 ```txt
-wp-content/plugins/wp-meta-description/
+wp-content/plugins/wp-custom-meta-description/
 ```
 
 Backend installation:
 
-1. Create a ZIP with `meta-description/` as the root folder.
+1. Create a ZIP with `custom-meta-description/` as the root folder.
 2. In WordPress, go to **Plugins > Add New > Upload Plugin**.
-3. Upload `meta-description.zip`.
-4. Activate **Meta Description**.
+3. Upload `custom-meta-description.zip`.
+4. Activate **Custom Meta Description**.
 
 Manual installation:
 
-1. Upload the `meta-description` folder to `wp-content/plugins/`.
-2. Activate **Meta Description** from the WordPress plugins screen.
+1. Upload the `custom-meta-description` folder to `wp-content/plugins/`.
+2. Activate **Custom Meta Description** from the WordPress plugins screen.
 
 ## Usage
 
@@ -159,8 +159,8 @@ Return `false` from this filter if you want this plugin to output the meta descr
 ## Repository structure
 
 ```txt
-meta-description/
-|-- meta-description.php
+custom-meta-description/
+|-- custom-meta-description.php
 |-- README.md
 |-- readme.txt
 |-- LICENSE
